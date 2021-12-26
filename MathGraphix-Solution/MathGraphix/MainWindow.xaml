@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathGraphix"
         mc:Ignorable="d"
-        Title="Math Graphix" Height="450" Width="800" Icon="/logo.png">
-    
-    <StackPanel>
-        <StackPanel Height="25">
-            <Menu Height="25" FontWeight="Bold">
-                <MenuItem Header="Файл">
-                    <MenuItem Header="Новый" ></MenuItem>
-                    <MenuItem Header="Открыть"></MenuItem>
-                    <MenuItem Header="Сохранить"></MenuItem>
-                    <MenuItem Header="Сохранить как..."></MenuItem>
+        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png">
+    <DockPanel HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Height="Auto"
+            Width="Auto">
+        <StackPanel DockPanel.Dock="Top" Height="25" Width="Auto" HorizontalAlignment="Stretch" x:Name="StackPanel_MainMenu">
+            <Menu Height="25" FontWeight="Bold" x:Name="MainMenu">
+                <MenuItem x:Name="MainMenuItem_File" Header="Файл">
+                    <MenuItem x:Name="MainMenuItem_New" Header="Новый" ></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_Open" Header="Открыть"></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_Save" Header="Сохранить"></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_SaveAs" Header="Сохранить как..."></MenuItem>
                     <Separator />
-                    <MenuItem Header="Сохранить как изображение"></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_SaveAsImage" Header="Сохранить как изображение"></MenuItem>
                     <Separator />
-                    <MenuItem Header="Выход" ></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_Exit" Header="Выход" ></MenuItem>
                 </MenuItem>
-                <MenuItem Header="Рисовать" ></MenuItem>
+                <MenuItem x:Name="MainMenuItem_Draw" Header="Рисовать" Click="MenuItem_Draw_Click"></MenuItem>
             </Menu>
         </StackPanel>
-        <StackPanel Height="410"/>
-
-    </StackPanel>
-
+        <StackPanel x:Name="StackPanel_Graph" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" />
+    </DockPanel>
 </Window>
