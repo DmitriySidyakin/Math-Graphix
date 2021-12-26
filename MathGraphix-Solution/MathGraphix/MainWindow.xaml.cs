@@ -26,5 +26,10 @@ namespace MathGraphix
 
             this.WindowState = WindowState.Maximized;
         }
+
+        private void MenuItem_Draw_Click(object sender, RoutedEventArgs e)
+        {
+            StackPanel_Graph.Background = Brushes.DarkKhaki;
+        }
     }
 }
