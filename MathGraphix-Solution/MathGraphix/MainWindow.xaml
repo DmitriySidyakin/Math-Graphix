@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathGraphix"
         mc:Ignorable="d"
-        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png" Background="White" Closed="Window_Closed">
+        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png" Background="White" Closed="Window_Closed" >
     <Window.Resources>
         <SolidColorBrush x:Key="Menu.Static.Background" Color="#FF1F7BB0"/>
         <SolidColorBrush x:Key="Menu.Static.Border" Color="Black"/>
@@ -307,7 +307,7 @@
             Height="Auto"
             Width="Auto">
         <StackPanel DockPanel.Dock="Top" Height="25" Width="Auto" HorizontalAlignment="Stretch" x:Name="StackPanel_MainMenu">
-            <Menu Height="25" FontWeight="Bold" x:Name="MainMenu" Background="#FF1F7BB0" Foreground="White">
+            <Menu Height="25" FontWeight="Bold" x:Name="MainMenu" Background="#FF1F7BB0" Foreground="White" FontSize="16">
                 <MenuItem Style="{DynamicResource MenuItemStyle}" x:Name="MainMenuItem_File" Header="Файл">
                     <MenuItem x:Name="MainMenuItem_New" Header="Новый" >
                         <MenuItem.Icon>
