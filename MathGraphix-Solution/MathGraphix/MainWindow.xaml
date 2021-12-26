@@ -9,7 +9,7 @@
     
     <StackPanel>
         <StackPanel Height="25">
-            <Menu Height="25">
+            <Menu Height="25" FontWeight="Bold">
                 <MenuItem Header="File">
                     <MenuItem Header="New" ></MenuItem>
                     <MenuItem Header="Open"></MenuItem>
