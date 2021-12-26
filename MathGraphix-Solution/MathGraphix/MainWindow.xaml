@@ -10,16 +10,17 @@
     <StackPanel>
         <StackPanel Height="25">
             <Menu Height="25" FontWeight="Bold">
-                <MenuItem Header="File">
-                    <MenuItem Header="New" ></MenuItem>
-                    <MenuItem Header="Open"></MenuItem>
-                    <MenuItem Header="Save"></MenuItem>
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Новый" ></MenuItem>
+                    <MenuItem Header="Открыть"></MenuItem>
+                    <MenuItem Header="Сохранить"></MenuItem>
+                    <MenuItem Header="Сохранить как..."></MenuItem>
                     <Separator />
-                    <MenuItem Header="Expot as..."></MenuItem>
+                    <MenuItem Header="Сохранить как изображение"></MenuItem>
                     <Separator />
-                    <MenuItem Header="Exit" ></MenuItem>
+                    <MenuItem Header="Выход" ></MenuItem>
                 </MenuItem>
-                <MenuItem Header="Draw" ></MenuItem>
+                <MenuItem Header="Рисовать" ></MenuItem>
             </Menu>
         </StackPanel>
         <StackPanel Height="410"/>
