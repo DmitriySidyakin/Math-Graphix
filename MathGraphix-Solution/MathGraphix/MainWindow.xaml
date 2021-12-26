@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathGraphix"
         mc:Ignorable="d"
-        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png" Background="White">
+        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png" Background="White" Closed="Window_Closed">
     <Window.Resources>
         <SolidColorBrush x:Key="Menu.Static.Background" Color="#FF1F7BB0"/>
         <SolidColorBrush x:Key="Menu.Static.Border" Color="Black"/>
@@ -324,9 +324,9 @@
                     <Separator Background="#FF27A9F3" Foreground="White" />
                     <MenuItem x:Name="MainMenuItem_SaveAsImage" Header="Сохранить как изображение"></MenuItem>
                     <Separator Background="#FF27A9F3" Foreground="White"/>
-                    <MenuItem x:Name="MainMenuItem_Exit" Header="Выход" ></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_Exit" Header="Выход" Click="MainMenuItem_Exit_Click"></MenuItem>
                 </MenuItem>
-                <MenuItem x:Name="MainMenuItem_Draw" Header="Рисовать" Click="MenuItem_Draw_Click"></MenuItem>
+                <MenuItem x:Name="MainMenuItem_Draw" Header="Рисовать" Click="MainMenuItem_Draw_Click"></MenuItem>
             </Menu>
         </StackPanel>
         <StackPanel x:Name="StackPanel_Graph" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Margin="0 0 0 25"/>

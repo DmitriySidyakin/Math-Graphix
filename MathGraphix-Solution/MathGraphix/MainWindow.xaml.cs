@@ -29,9 +29,19 @@ namespace MathGraphix
             this.WindowState = WindowState.Maximized;
         }
         
-        private void MenuItem_Draw_Click(object sender, RoutedEventArgs e)
+        private void MainMenuItem_Draw_Click(object sender, RoutedEventArgs e)
         {
             drawingSettingsWindow.Show();
+        }
+
+        private void MainMenuItem_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
