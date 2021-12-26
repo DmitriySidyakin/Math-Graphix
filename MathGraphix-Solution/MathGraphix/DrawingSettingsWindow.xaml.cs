@@ -10,28 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MathGraphix
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для DrawingSettingsWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DrawingSettingsWindow : Window
     {
-        internal DrawingSettingsWindow drawingSettingsWindow = new DrawingSettingsWindow();
-
-        public MainWindow()
+        public DrawingSettingsWindow()
         {
             InitializeComponent();
-
-            this.WindowState = WindowState.Maximized;
         }
-        
-        private void MenuItem_Draw_Click(object sender, RoutedEventArgs e)
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            drawingSettingsWindow.Show();
+            e.Cancel = true;  // Cancels the window close    
+            this.Hide();      // Programmatically hides the window
         }
     }
 }

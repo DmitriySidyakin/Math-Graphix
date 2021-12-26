@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathGraphix"
         mc:Ignorable="d"
-        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png">
+        Title="Math Graphix" MinHeight="450" MinWidth="800" Icon="/logo.png" Background="White">
     <DockPanel HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch" 
             Height="Auto"
             Width="Auto">
         <StackPanel DockPanel.Dock="Top" Height="25" Width="Auto" HorizontalAlignment="Stretch" x:Name="StackPanel_MainMenu">
-            <Menu Height="25" FontWeight="Bold" x:Name="MainMenu">
+            <Menu Height="25" FontWeight="Bold" x:Name="MainMenu" Background="#FF1F7BB0" Foreground="White">
                 <MenuItem x:Name="MainMenuItem_File" Header="Файл">
-                    <MenuItem x:Name="MainMenuItem_New" Header="Новый" ></MenuItem>
-                    <MenuItem x:Name="MainMenuItem_Open" Header="Открыть"></MenuItem>
-                    <MenuItem x:Name="MainMenuItem_Save" Header="Сохранить"></MenuItem>
-                    <MenuItem x:Name="MainMenuItem_SaveAs" Header="Сохранить как..."></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_New" Header="Новый" UsesItemContainerTemplate="True" Background="#FF1F7BB0" Foreground="White" ></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_Open" Header="Открыть" Background="#FF1F7BB0" Foreground="White"></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_Save" Header="Сохранить" Background="#FF1F7BB0" Foreground="White"></MenuItem>
+                    <MenuItem x:Name="MainMenuItem_SaveAs" Header="Сохранить как..." Background="#FF1F7BB0" Foreground="White"></MenuItem>
                     <Separator />
                     <MenuItem x:Name="MainMenuItem_SaveAsImage" Header="Сохранить как изображение"></MenuItem>
                     <Separator />
