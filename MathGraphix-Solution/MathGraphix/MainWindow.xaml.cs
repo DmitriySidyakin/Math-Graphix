@@ -20,16 +20,35 @@ namespace MathGraphix
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal DrawingSettingsWindow drawingSettingsWindow = new DrawingSettingsWindow();
+        internal ApplicationSettingsWindow applicationSettingsWindow = new ApplicationSettingsWindow();
+
+       
+
         public MainWindow()
         {
             InitializeComponent();
 
             this.WindowState = WindowState.Maximized;
         }
-
-        private void MenuItem_Draw_Click(object sender, RoutedEventArgs e)
+        
+        private void MainMenuItem_Draw_Click(object sender, RoutedEventArgs e)
         {
-            StackPanel_Graph.Background = Brushes.DarkKhaki;
+            drawingSettingsWindow.Show();
+        }
+        private void MainMenuItem_Settings_Click(object sender, RoutedEventArgs e)
+        {
+            applicationSettingsWindow.Show();
+        }
+
+        private void MainMenuItem_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
