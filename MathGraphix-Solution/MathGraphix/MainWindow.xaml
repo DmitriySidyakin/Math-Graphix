@@ -327,6 +327,7 @@
                     <MenuItem x:Name="MainMenuItem_Exit" Header="Выход" Click="MainMenuItem_Exit_Click"></MenuItem>
                 </MenuItem>
                 <MenuItem x:Name="MainMenuItem_Draw" Header="Рисовать" Click="MainMenuItem_Draw_Click"></MenuItem>
+                <MenuItem x:Name="MainMenuItem_Settings" Header="Настройки" Click="MainMenuItem_Settings_Click"></MenuItem>
             </Menu>
         </StackPanel>
         <StackPanel x:Name="StackPanel_Graph" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Margin="0 0 0 25"/>

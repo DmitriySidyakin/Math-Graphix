@@ -21,6 +21,9 @@ namespace MathGraphix
     public partial class MainWindow : Window
     {
         internal DrawingSettingsWindow drawingSettingsWindow = new DrawingSettingsWindow();
+        internal ApplicationSettingsWindow applicationSettingsWindow = new ApplicationSettingsWindow();
+
+       
 
         public MainWindow()
         {
@@ -32,6 +35,10 @@ namespace MathGraphix
         private void MainMenuItem_Draw_Click(object sender, RoutedEventArgs e)
         {
             drawingSettingsWindow.Show();
+        }
+        private void MainMenuItem_Settings_Click(object sender, RoutedEventArgs e)
+        {
+            applicationSettingsWindow.Show();
         }
 
         private void MainMenuItem_Exit_Click(object sender, RoutedEventArgs e)

@@ -5,35 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathGraphix"
         mc:Ignorable="d"
-        Title="Настройки рисования графиков" Height="461" Width="830" MinHeight="400" MinWidth="400" Closing="Window_Closing" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
+        Title="Настройки рисования графиков" Height="505" Width="830" MinHeight="400" MinWidth="400" Closing="Window_Closing" Background="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <StackPanel VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
             <GroupBox Header="Графики" Width="800" Height="56" VerticalAlignment="Top" Margin="7 0 7 0" BorderBrush="#FF165072" Foreground="#FF165072">
                 <DockPanel HorizontalAlignment="Left">
-                    <Button Content="Сбросить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="78" />
-                    <Button Content="Применить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="96" />
+                    <Button x:Name="ResetButton" Content="Сбросить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="78" Click="ResetButton_Click" />
+                    <Button x:Name="AddButton" Content="Добавить графики" Margin="5,0,0,0" Width="142" Click="AddButton_Click" />
+                    <Button x:Name="ApplyButton" Content="Применить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="96"/>
                 </DockPanel>
             </GroupBox>
-            <DockPanel HorizontalAlignment="Center">
-                <GroupBox Header="График 1" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-                <GroupBox Header="График 2" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-                <GroupBox Header="График 3" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-                <GroupBox Header="График 4" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-            </DockPanel>
-            <DockPanel  HorizontalAlignment="Center">
-                <GroupBox Header="График 4" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-                <GroupBox Header="График 5" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-                <GroupBox Header="График 7" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-                <GroupBox Header="График 8" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
-                </GroupBox>
-            </DockPanel>
+            <StackPanel VerticalAlignment="Top" x:Name="StackPanel_Graphs">
+                <!--
+                <DockPanel HorizontalAlignment="Center">
+                    <GroupBox Header="График 1" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                    <GroupBox Header="График 2" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                    <GroupBox Header="График 3" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                    <GroupBox Header="График 4" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <GroupBox Header="График 4" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                    <GroupBox Header="График 5" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                    <GroupBox Header="График 7" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                    <GroupBox Header="График 8" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
+                    </GroupBox>
+                </DockPanel>
+                -->
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 
