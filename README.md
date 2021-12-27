@@ -1,2 +1,2 @@
 # Math-Graphix
-A program for building graphs of the simplest mathematical functions
+Программа для построения графиков простых математических функций
