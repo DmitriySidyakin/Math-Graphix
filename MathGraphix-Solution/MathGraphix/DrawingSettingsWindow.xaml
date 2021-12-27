@@ -10,12 +10,13 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
             <GroupBox Header="Графики" Width="800" Height="56" VerticalAlignment="Top" Margin="7 0 7 0" BorderBrush="#FF165072" Foreground="#FF165072">
                 <DockPanel HorizontalAlignment="Left">
-                    <Button x:Name="ResetButton" Content="Сбросить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="78" Click="ResetButton_Click" />
-                    <Button x:Name="AddButton" Content="Добавить графики" Margin="5,0,0,0" Width="142" Click="AddButton_Click" />
-                    <Button x:Name="ApplyButton" Content="Применить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Button x:Name="ResetButton" Content="Сбросить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="78" Click="ResetButton_Click" Height="25"/>
+                    <Button x:Name="AddButton" Content="Добавить графики" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="142" Click="AddButton_Click" Height="25" />
+                    <Button x:Name="ApplyButton" Content="Применить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="96" Click="ApplyButton_Click" Height="25"/>
                 </DockPanel>
             </GroupBox>
             <StackPanel VerticalAlignment="Top" x:Name="StackPanel_Graphs">
+                
                 <!--
                 <DockPanel HorizontalAlignment="Center">
                     <GroupBox Header="График 1" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
@@ -39,6 +40,7 @@
                 </DockPanel>
                 -->
             </StackPanel>
+            
         </StackPanel>
     </ScrollViewer>
 
