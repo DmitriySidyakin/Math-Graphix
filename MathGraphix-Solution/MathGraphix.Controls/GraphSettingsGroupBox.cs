@@ -38,31 +38,13 @@ namespace MathGraphix.Library
             colorLabel.Content = "Цвет";
             colorLabel.Margin = new Thickness(730, -10, 0, 0);
 
-
-            ListBox colorListBox = new ListBox();
-            colorListBox.Width = 300;
-            colorListBox.Height = 251;
-            colorListBox.Margin = new Thickness(480, -85, 0, 0);
-
-            Type type = typeof(Brushes);
-            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Static);
-            foreach (PropertyInfo property in properties)
-            {
-                if (property.PropertyType == typeof(SolidColorBrush))
-                {
-                    Label colorText = new Label();
-                    colorText.Content = property.Name;
-                    colorText.Background = (SolidColorBrush)property.GetValue(null);
-                    colorText.Width = 268;
-
-                    colorListBox.Items.Add(colorText);
-                }
-            }
+            ColorPickerGrid cpg = new();
+            cpg.Margin = new Thickness(480, -85, 0, 0);
 
             grid.Children.Add(isShownCheckBox);
             grid.Children.Add(isShownLabel);
             grid.Children.Add(colorLabel);
-            grid.Children.Add(colorListBox);
+            grid.Children.Add(cpg);
 
             newGroupBox.Content = grid;
 

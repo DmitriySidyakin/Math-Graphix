@@ -16,7 +16,7 @@
                 </DockPanel>
             </GroupBox>
             <StackPanel VerticalAlignment="Top" x:Name="StackPanel_Graphs">
-                
+
                 <!--
                 <DockPanel HorizontalAlignment="Center">
                     <GroupBox Header="График 1" Width="200" Height="175" BorderBrush="#FF165072" Foreground="#FF165072">
@@ -40,7 +40,6 @@
                 </DockPanel>
                 -->
             </StackPanel>
-            
         </StackPanel>
     </ScrollViewer>
 
