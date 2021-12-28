@@ -22,22 +22,19 @@ namespace MathGraphix.Library
             selectedColor.Background = Brushes.Red;
             selectedColor.BorderBrush = Brushes.Black;
             selectedColor.Margin = new Thickness(0, 335, 0, 0);
-            selectedColor.Content = "Red";
-            selectedColor.VerticalContentAlignment = VerticalAlignment.Center;
-            selectedColor.HorizontalContentAlignment = HorizontalAlignment.Center;
-
+            
             Children.Add(colorListBox);
             Children.Add(selectedColor);
-
         }
 
         private ListBox CreateColorListBox()
         {
             this.Width = 300;
+
             ListBox colorListBox = new ListBox();
             colorListBox.Width = 300;
             colorListBox.Height = 251;
-
+            
             Type type = typeof(Brushes);
             PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Static);
             foreach (PropertyInfo property in properties)
@@ -45,14 +42,15 @@ namespace MathGraphix.Library
                 if (property.PropertyType == typeof(SolidColorBrush))
                 {
                     Label colorText = new Label();
-                    colorText.Content = property.Name;
+                    //colorText.Content = property.Name;
                     colorText.Background = (SolidColorBrush)property.GetValue(null);
                     colorText.Width = 268;
+                    colorText.Height = 35;
 
                     colorListBox.Items.Add(colorText);
                 }
             }
-
+            
             return colorListBox;
         }
     }

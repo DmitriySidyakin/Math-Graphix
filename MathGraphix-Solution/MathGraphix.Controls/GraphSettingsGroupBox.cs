@@ -17,38 +17,32 @@ namespace MathGraphix.Library
             CreateGraphSettingsGroupBox();
         }
 
-        private GroupBox CreateGraphSettingsGroupBox()
+        private void CreateGraphSettingsGroupBox()
         {
-            GroupBox newGroupBox = this;
-            newGroupBox.Header = $"График {Number}";
-            newGroupBox.Width = 800;
-            newGroupBox.Height = 400;
-            newGroupBox.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#165072");
-            newGroupBox.Foreground = newGroupBox.BorderBrush;
+            Setup();
 
             Grid grid = new Grid();
 
-            CheckBox isShownCheckBox = new CheckBox();
-            Label isShownLabel = new Label();
-            isShownLabel.Content = "Отображать";
-            isShownLabel.Margin = new Thickness(15, -10, 0, 0);
-
-
-            Label colorLabel = new Label();
-            colorLabel.Content = "Цвет";
-            colorLabel.Margin = new Thickness(730, -10, 0, 0);
-
-            ColorPickerGrid cpg = new();
-            cpg.Margin = new Thickness(480, -85, 0, 0);
+            CheckBox isShownCheckBox = new();
+            Label isShownLabel = new() { Content = "Отображать", Margin = new Thickness(15, -10, 0, 0) };
+            Label colorLabel = new() { Content = "Цвет", Margin = new Thickness(730, -10, 0, 0) } ;
+            ColorPickerGrid colorPickerGrid = new() { Margin = new Thickness(480, -85, 0, 0) };
 
             grid.Children.Add(isShownCheckBox);
             grid.Children.Add(isShownLabel);
             grid.Children.Add(colorLabel);
-            grid.Children.Add(cpg);
+            grid.Children.Add(colorPickerGrid);
 
-            newGroupBox.Content = grid;
+            this.Content = grid;
+        }
 
-            return newGroupBox;
+        private void Setup()
+        {
+            this.Header = $"График {Number}";
+            this.Width = 800;
+            this.Height = 400;
+            this.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#165072");
+            this.Foreground = this.BorderBrush;
         }
     }
 }
