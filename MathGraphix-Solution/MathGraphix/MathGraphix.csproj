@@ -12,8 +12,9 @@
     <None Remove="menu-item-new.png" />
     <None Remove="menu-item-open.png" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\MathGraphix.Library\MathGraphix.Library.csproj" />
+    <ProjectReference Include="..\MathGraphix.Controls\MathGraphix.Controls.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.png" />
