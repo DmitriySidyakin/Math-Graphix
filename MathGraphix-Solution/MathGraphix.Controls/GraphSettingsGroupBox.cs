@@ -49,7 +49,6 @@ namespace MathGraphix.Library
             grid.Children.Add(graphFunctionList);
             grid.Children.Add(colorLabel);
             grid.Children.Add(colorPickerGrid);
-            
 
             this.Content = grid;
         }

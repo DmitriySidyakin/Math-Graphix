@@ -21,7 +21,7 @@ namespace MathGraphix.Library
             
             selectedColor.Width = 300;
             selectedColor.Height = 75;
-            selectedColor.Background = Brushes.Red;
+            selectedColor.Background = null;
             selectedColor.BorderBrush = Brushes.Black;
             selectedColor.Margin = new Thickness(0, 335, 0, 0);
 
