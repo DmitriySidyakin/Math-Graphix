@@ -16,6 +16,8 @@ namespace MathGraphix.Library
         public ColorPickerGrid colorPickerGrid;
         public ComboBox graphFunctionList;
 
+        private string selectFunctionString = "Выберите функцию...";
+
         public GraphSettingsGroupBox(int i): base()
         {
             Number = i;
@@ -35,7 +37,7 @@ namespace MathGraphix.Library
             colorPickerGrid = new() { Margin = new Thickness(480, -65, 0, 0) };
 
             
-            graphFunctionList = new() { Margin = new Thickness(15, 40, 0, 0), Width = 400, Height = 30, Text = "Выберите функцию...", HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
+            graphFunctionList = new() { Margin = new Thickness(15, 40, 0, 0), Width = 400, Height = 30, Text = selectFunctionString, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
             graphFunctionList.Items.Add("Выберите функцию...");
             graphFunctionList.SelectedIndex = 0;
             graphFunctionList.Items.Add("y = a");
@@ -54,10 +56,13 @@ namespace MathGraphix.Library
 
         private void GraphFunctionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Header = $"График {Number} [{e.AddedItems[0]}]";
+            this.Header = $"График {Number}";
             if (e.AddedItems.Count == 1)
             {
-                switch(e.AddedItems[0])
+                if (!e.AddedItems[0].Equals(selectFunctionString))
+                    this.Header += $" [{e.AddedItems[0]}]";
+
+                switch (e.AddedItems[0])
                 {
                     case "y = a":
                         {
