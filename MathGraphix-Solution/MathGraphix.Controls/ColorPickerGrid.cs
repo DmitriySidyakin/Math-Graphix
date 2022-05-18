@@ -10,21 +10,32 @@ namespace MathGraphix.Library
     {
         public int Number { get; }
 
+        public Label selectedColor = new Label();
+
         public ColorPickerGrid() : base() => CreateColorPickerGrid();
 
         private void CreateColorPickerGrid()
         {
             ListBox colorListBox = CreateColorListBox();
-
-            Label selectedColor = new Label();
+            colorListBox.SelectionChanged += ColorListBox_SelectionChanged;
+            
             selectedColor.Width = 300;
             selectedColor.Height = 75;
             selectedColor.Background = Brushes.Red;
             selectedColor.BorderBrush = Brushes.Black;
             selectedColor.Margin = new Thickness(0, 335, 0, 0);
-            
+
+
             Children.Add(colorListBox);
             Children.Add(selectedColor);
+        }
+
+        private void ColorListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(e.AddedItems.Count == 1)
+            {
+                selectedColor.Background = ((Label)e.AddedItems[0]).Background;
+            }
         }
 
         private ListBox CreateColorListBox()
