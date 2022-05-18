@@ -11,7 +11,7 @@ namespace MathGraphix.Library
         public int Number { get; }
 
         public Label selectedColor = new Label();
-
+        public static Random rnd = new();
         public ColorPickerGrid() : base() => CreateColorPickerGrid();
 
         private void CreateColorPickerGrid()
@@ -21,10 +21,10 @@ namespace MathGraphix.Library
             
             selectedColor.Width = 300;
             selectedColor.Height = 75;
-            selectedColor.Background = null;
+            
+            selectedColor.Background = ((Label)colorListBox.Items[rnd.Next(0, colorListBox.Items.Count - 1)]).Background;
             selectedColor.BorderBrush = Brushes.Black;
             selectedColor.Margin = new Thickness(0, 335, 0, 0);
-
 
             Children.Add(colorListBox);
             Children.Add(selectedColor);
