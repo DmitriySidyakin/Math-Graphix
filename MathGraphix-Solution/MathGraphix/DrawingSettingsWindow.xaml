@@ -8,11 +8,11 @@
         Title="Настройки рисования графиков" Height="505" Width="850" MinHeight="400" MinWidth="400" Closing="Window_Closing" Background="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-            <GroupBox Header="Графики" Width="800" Height="56" VerticalAlignment="Top" Margin="7 0 7 0" BorderBrush="#FF165072" Foreground="#FF165072">
+            <GroupBox Header="Графики" Width="800" Height="61" VerticalAlignment="Top" Margin="7 0 7 0" BorderBrush="#FF165072" Foreground="#FF165072">
                 <DockPanel HorizontalAlignment="Left">
-                    <Button x:Name="ResetButton" Content="Сбросить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="78" Click="ResetButton_Click" Height="25"/>
-                    <Button x:Name="AddButton" Content="Добавить графики" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="142" Click="AddButton_Click" Height="25" />
-                    <Button x:Name="ApplyButton" Content="Применить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="96" Click="ApplyButton_Click" Height="25"/>
+                    <Button x:Name="ResetButton" Content="Сбросить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="78" Click="ResetButton_Click" Height="30" />
+                    <Button x:Name="AddButton" Content="Добавить графики" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="142" Click="AddButton_Click" Height="30" />
+                    <Button x:Name="ApplyButton" Content="Применить" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="96" Click="ApplyButton_Click" Height="30"/>
                 </DockPanel>
             </GroupBox>
             <StackPanel VerticalAlignment="Top" x:Name="StackPanel_Graphs">
