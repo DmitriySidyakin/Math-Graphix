@@ -37,13 +37,14 @@ namespace MathGraphix.Library
             colorPickerGrid = new() { Margin = new Thickness(480, -65, 0, 0) };
 
             
-            graphFunctionList = new() { Margin = new Thickness(15, 40, 0, 0), Width = 400, Height = 30, Text = selectFunctionString, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
+            graphFunctionList = new() { Margin = new Thickness(15, 40, 0, 0), Width = 600, Height = 30, Text = selectFunctionString, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
             graphFunctionList.Items.Add("Выберите функцию...");
             graphFunctionList.SelectedIndex = 0;
-            graphFunctionList.Items.Add("y = a");
-            graphFunctionList.Items.Add("x = a");
+            graphFunctionList.Items.Add("y = a (y=константа)");
+            graphFunctionList.Items.Add("x = a (x=константа)");
+            graphFunctionList.Items.Add("y = ax+b (линейная)");
             graphFunctionList.SelectionChanged += GraphFunctionList_SelectionChanged;
-
+            //Math.
             grid.Children.Add(isShownCheckBox);
             grid.Children.Add(isShownLabel);
             grid.Children.Add(graphFunctionList);
