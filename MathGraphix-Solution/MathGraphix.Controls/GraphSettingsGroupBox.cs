@@ -15,6 +15,12 @@ namespace MathGraphix.Library
         public Label colorLabel;
         public ColorPickerGrid colorPickerGrid;
         public ComboBox graphFunctionList;
+        public Label widthLabel;
+        public Slider widthSlider;
+        public TextBox widthTextBox;
+
+        public static int widthSliderMinimum = 1; 
+        public string widthTextBoxPreviousValue = widthSliderMinimum.ToString();
 
         private string selectFunctionString = "Выберите функцию...";
 
@@ -37,21 +43,95 @@ namespace MathGraphix.Library
             colorPickerGrid = new() { Margin = new Thickness(480, -65, 0, 0) };
 
             
-            graphFunctionList = new() { Margin = new Thickness(15, 40, 0, 0), Width = 600, Height = 30, Text = selectFunctionString, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
+            graphFunctionList = new() { Margin = new Thickness(15, 40, 0, 0), Width = 400, Height = 30, Text = selectFunctionString, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
             graphFunctionList.Items.Add("Выберите функцию...");
             graphFunctionList.SelectedIndex = 0;
             graphFunctionList.Items.Add("y = a (y=константа)");
             graphFunctionList.Items.Add("x = a (x=константа)");
             graphFunctionList.Items.Add("y = ax+b (линейная)");
+            graphFunctionList.Items.Add("y = ax²+bx+c (парабола)");
+            graphFunctionList.Items.Add("y = ax³+bx²+cx+d (гипербола)");
+            graphFunctionList.Items.Add("y =  ax⁴+bx³+cx²+dx+z (степенная четвёртой степени)");
+            graphFunctionList.Items.Add("y = c:(ax+b)+d (деление на x)");
+            graphFunctionList.Items.Add("y = d:(ax²+bx+c)+z (деление на параболу)");
+            graphFunctionList.Items.Add("y = z:(ax³+bx²+cx+d)+k (деление на гиперболу)");
+            graphFunctionList.Items.Add("y = k:(ax⁴+bx³+cx²+dx+z)+l (деление на степенную четвёртой степени)");
+            graphFunctionList.Items.Add("y = c|ax+b|+d (модуль числа)");
+            graphFunctionList.Items.Add("y = c√(ax+b)+d (квадратный корень)");
+            graphFunctionList.Items.Add("y = c³√(ax+b)+d (кубический корень)");
+            graphFunctionList.Items.Add("y = ceᵃᵡ⁺ᵇ+d (експонента)");
+            graphFunctionList.Items.Add("y = clog₁₀(ax+b)+d (десятичный логарифм)");
+            graphFunctionList.Items.Add("y = clog₂(ax+b)+d (двоичный логарифм)");
+            graphFunctionList.Items.Add("y = cln(ax+b)+d (натуральный логарифм)");
+            graphFunctionList.Items.Add("y = csin(ax+b)+d (синус)");
+            graphFunctionList.Items.Add("y = ccos(ax+b)+d (косинус)");
+            graphFunctionList.Items.Add("y = ctg(ax+b)+d (тангенс)");
+            graphFunctionList.Items.Add("y = cctg(ax+b)+d (котангенс)");
+            graphFunctionList.Items.Add("y = carcsin(ax+b)+d (арксинус)");
+            graphFunctionList.Items.Add("y = carccos(ax+b)+d (арккосинус)");
+            graphFunctionList.Items.Add("y = carctg(ax+b)+d (арктангенс)");
+            graphFunctionList.Items.Add("y = carcctg(ax+b)+d (арккотангенс)");
+            graphFunctionList.Items.Add("y = сsh(ax+b)+d (гиперболический синус)");
+            graphFunctionList.Items.Add("y = ссh(ax+b)+d (гиперболический косинус)");
+            graphFunctionList.Items.Add("y = сth(ax+b)+d (гиперболический тангенс)");
+            graphFunctionList.Items.Add("y = сcth(ax+b)+d (гиперболический котангенс)");
+            graphFunctionList.Items.Add("y = сsch(ax+b)+d (гиперболический секанс)");
+            graphFunctionList.Items.Add("y = сcsch(ax+b)+d (гиперболический косеканс)");
+            graphFunctionList.Items.Add("y = сarsh(ax+b)+d (обратный гиперболический синус)");
+            graphFunctionList.Items.Add("y = сarсh(ax+b)+d (обратный гиперболический косинус)");
+            graphFunctionList.Items.Add("y = сarth(ax+b)+d (обратный гиперболический тангенс)");
+            graphFunctionList.Items.Add("y = сarcth(ax+b)+d (обратный гиперболический котангенс)");
+            graphFunctionList.Items.Add("y = сarsch(ax+b)+d (обратный гиперболический секанс)");
+            graphFunctionList.Items.Add("y = сarcsch(ax+b)+d (обратный гиперболический косеканс)");
             graphFunctionList.SelectionChanged += GraphFunctionList_SelectionChanged;
-            //Math.
+
+            widthLabel = new() { Content = "Ширина", Margin = new Thickness(10, 75, 0, 0), Visibility = Visibility.Hidden };
+            widthSlider = new() { Margin = new Thickness(90, 85, 0, 0), Width = 150, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Minimum = widthSliderMinimum, Maximum = 100, IsSelectionRangeEnabled = true, IsSnapToTickEnabled = true, Visibility = Visibility.Hidden };
+            widthTextBox = new() { Margin = new Thickness(255, 85, 0, 0), Width = 160, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            widthSlider.ValueChanged += WidthSlider_ValueChanged;
+            widthTextBox.TextChanged += WidthTextBox_TextChanged;
+
             grid.Children.Add(isShownCheckBox);
             grid.Children.Add(isShownLabel);
             grid.Children.Add(graphFunctionList);
+            grid.Children.Add(widthLabel);
+            grid.Children.Add(widthSlider);
+            grid.Children.Add(widthTextBox);
             grid.Children.Add(colorLabel);
             grid.Children.Add(colorPickerGrid);
 
             this.Content = grid;
+        }
+
+        private void WidthTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(widthTextBox.Text.Length == 0 || widthTextBox.Text[0] == '0')
+            {
+                widthTextBox.Text = widthTextBoxPreviousValue;
+                return;
+            }
+                
+            if (int.TryParse(widthTextBox.Text, out int value))
+            {
+                if(value < widthSlider.Minimum || value > widthSlider.Maximum)
+                {
+                    widthTextBox.Text = widthTextBoxPreviousValue;
+                }
+                else
+                {
+                    widthTextBoxPreviousValue = value.ToString();
+                    widthSlider.Value = value;
+                }
+            }
+            else
+            {
+                widthTextBox.Text = widthTextBoxPreviousValue;
+            }
+        }
+
+        private void WidthSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            widthTextBox.Text = e.NewValue.ToString();
         }
 
         private void GraphFunctionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,7 +140,20 @@ namespace MathGraphix.Library
             if (e.AddedItems.Count == 1)
             {
                 if (!e.AddedItems[0].Equals(selectFunctionString))
+                {
                     this.Header += $" [{e.AddedItems[0]}]";
+                    widthLabel.Visibility = Visibility.Visible;
+                    widthSlider.Visibility = Visibility.Visible;
+                    widthTextBox.Visibility = Visibility.Visible;
+
+                }
+                else
+                {
+                    widthLabel.Visibility = Visibility.Hidden;
+                    widthSlider.Visibility = Visibility.Hidden;
+                    widthTextBox.Visibility = Visibility.Hidden;
+                    widthSlider.Value = widthSliderMinimum;
+                }
 
                 switch (e.AddedItems[0])
                 {

@@ -12,8 +12,15 @@
             <Grid Height="300" ClipToBounds="False">
                 <Label Content="Ширина:" />
                 <TextBox Margin="107,0,533,0" Height="28" VerticalAlignment="Top" />
-                <Label Content="Высота:" Margin="0,32,561,0"/>
+                <Label Content="Высота:" Margin="0,32,561,0" />
                 <TextBox Margin="107,33,533,0" Height="28" VerticalAlignment="Top" />
+                <Label Content="Сглаживание:" Margin="0,65,561,-33" />
+                <ComboBox HorizontalAlignment="Left" Margin="128,67,0,0" VerticalAlignment="Top" Width="157" SelectedIndex="1">
+                    <ComboBoxItem Content="НЕТ"></ComboBoxItem>
+                    <ComboBoxItem Content="x4"></ComboBoxItem>
+                    <ComboBoxItem Content="x8"></ComboBoxItem>
+                    <ComboBoxItem Content="x16"></ComboBoxItem>
+                </ComboBox>
             </Grid>
         </GroupBox>
     </StackPanel>
