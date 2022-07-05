@@ -1,4 +1,5 @@
-﻿using MathGraphix.Library;
+﻿using MathGraphix.Controls;
+using MathGraphix.Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;

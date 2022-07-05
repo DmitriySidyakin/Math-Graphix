@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace MathGraphix.Library
+namespace MathGraphix.Controls
 {
     public class GraphSettingsGroupBox : GroupBox
     {
@@ -18,6 +18,24 @@ namespace MathGraphix.Library
         public Label widthLabel;
         public Slider widthSlider;
         public TextBox widthTextBox;
+        public Label aLabel;
+        public Label bLabel;
+        public Label cLabel;
+        public Label dLabel;
+        public Label zLabel;
+        public Label lLabel;
+        public Label kLabel;
+        public Label hLabel;
+        public TextBox aTextBox;
+        public TextBox bTextBox;
+        public TextBox cTextBox;
+        public TextBox dTextBox;
+        public TextBox zTextBox;
+        public TextBox lTextBox;
+        public TextBox kTextBox;
+        public TextBox hTextBox;
+        public Label lineTypeLabel;
+        public LinePickerGrid linePickerGrid;
 
         public static int widthSliderMinimum = 1; 
         public string widthTextBoxPreviousValue = widthSliderMinimum.ToString();
@@ -91,12 +109,54 @@ namespace MathGraphix.Library
             widthSlider.ValueChanged += WidthSlider_ValueChanged;
             widthTextBox.TextChanged += WidthTextBox_TextChanged;
 
+            aLabel = new() { Content = "a", Margin = new Thickness(10, 110, 0, 0), Visibility = Visibility.Hidden };
+            aTextBox = new() { Margin = new Thickness(30, 115, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+           
+            bLabel = new() { Content = "b", Margin = new Thickness(10, 135, 0, 0), Visibility = Visibility.Hidden };
+            bTextBox = new() { Margin = new Thickness(30, 140, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            
+            cLabel = new() { Content = "c", Margin = new Thickness(10, 160, 0, 0), Visibility = Visibility.Hidden };
+            cTextBox = new() { Margin = new Thickness(30, 165, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            
+            dLabel = new() { Content = "d", Margin = new Thickness(10, 185, 0, 0), Visibility = Visibility.Hidden };
+            dTextBox = new() { Margin = new Thickness(30, 190, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            
+            zLabel = new() { Content = "z", Margin = new Thickness(220, 110, 0, 0), Visibility = Visibility.Hidden };
+            zTextBox = new() { Margin = new Thickness(240, 115, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            
+            lLabel = new() { Content = "l", Margin = new Thickness(220, 135, 0, 0), Visibility = Visibility.Hidden };
+            lTextBox = new() { Margin = new Thickness(240, 140, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            
+            kLabel = new() { Content = "k", Margin = new Thickness(220, 160, 0, 0), Visibility = Visibility.Hidden };
+            kTextBox = new() { Margin = new Thickness(240, 165, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+            
+            hLabel = new() { Content = "h", Margin = new Thickness(220, 185, 0, 0), Visibility = Visibility.Hidden };
+            hTextBox = new() { Margin = new Thickness(240, 190, 0, 0), Width = 175, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "1", Visibility = Visibility.Hidden };
+
+            lineTypeLabel = new() { Content = "Тип линии", Margin = new Thickness(10, 215, 0, 0), Visibility = Visibility.Hidden };
+            linePickerGrid = new() { Margin = new Thickness(105, 225, 0, 0), HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Visibility = Visibility.Hidden };
+
             grid.Children.Add(isShownCheckBox);
             grid.Children.Add(isShownLabel);
+
             grid.Children.Add(graphFunctionList);
+
             grid.Children.Add(widthLabel);
             grid.Children.Add(widthSlider);
             grid.Children.Add(widthTextBox);
+
+            grid.Children.Add(aLabel); grid.Children.Add(aTextBox);
+            grid.Children.Add(bLabel); grid.Children.Add(bTextBox);
+            grid.Children.Add(cLabel); grid.Children.Add(cTextBox);
+            grid.Children.Add(dLabel); grid.Children.Add(dTextBox);
+            grid.Children.Add(zLabel); grid.Children.Add(zTextBox);
+            grid.Children.Add(lLabel); grid.Children.Add(lTextBox);
+            grid.Children.Add(kLabel); grid.Children.Add(kTextBox);
+            grid.Children.Add(hLabel); grid.Children.Add(hTextBox);
+
+            grid.Children.Add(lineTypeLabel);
+            grid.Children.Add(linePickerGrid);
+
             grid.Children.Add(colorLabel);
             grid.Children.Add(colorPickerGrid);
 
@@ -142,16 +202,12 @@ namespace MathGraphix.Library
                 if (!e.AddedItems[0].Equals(selectFunctionString))
                 {
                     this.Header += $" [{e.AddedItems[0]}]";
-                    widthLabel.Visibility = Visibility.Visible;
-                    widthSlider.Visibility = Visibility.Visible;
-                    widthTextBox.Visibility = Visibility.Visible;
-
+                   
+                    SetGraphParametersVisibilityStatus(Visibility.Visible);
                 }
                 else
                 {
-                    widthLabel.Visibility = Visibility.Hidden;
-                    widthSlider.Visibility = Visibility.Hidden;
-                    widthTextBox.Visibility = Visibility.Hidden;
+                    SetGraphParametersVisibilityStatus(Visibility.Hidden);
                     widthSlider.Value = widthSliderMinimum;
                 }
 
@@ -169,6 +225,27 @@ namespace MathGraphix.Library
                         break;
                 }
             }
+        }
+
+        private void SetGraphParametersVisibilityStatus(Visibility status)
+        {
+            widthLabel.Visibility = status;
+            widthSlider.Visibility = status;
+            widthTextBox.Visibility = status;
+
+            lineTypeLabel.Visibility = status;
+            linePickerGrid.Visibility = status;
+
+            aLabel.Visibility = status; aTextBox.Visibility = status;
+            bLabel.Visibility = status; bTextBox.Visibility = status;
+            cLabel.Visibility = status; cTextBox.Visibility = status;
+            dLabel.Visibility = status; dTextBox.Visibility = status;
+            zLabel.Visibility = status; zTextBox.Visibility = status;
+            lLabel.Visibility = status; lTextBox.Visibility = status;
+            kLabel.Visibility = status; kTextBox.Visibility = status;
+            hLabel.Visibility = status; hTextBox.Visibility = status;
+
+            
         }
 
         private void Setup()

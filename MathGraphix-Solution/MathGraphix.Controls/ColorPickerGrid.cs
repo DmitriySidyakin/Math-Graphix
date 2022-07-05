@@ -4,13 +4,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace MathGraphix.Library
+namespace MathGraphix.Controls
 {
     public class ColorPickerGrid : Grid
     {
         public int Number { get; }
 
-        public Label selectedColor = new Label();
+        public Label selectedColor = new();
         public static Random rnd = new();
         public ColorPickerGrid() : base() => CreateColorPickerGrid();
 
